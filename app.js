@@ -29,6 +29,7 @@ const options = {
     useNewUrlParser: true,
     family: 4
 };
+app.use(cors(corsOptions));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -46,6 +47,8 @@ app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 
 app.use(errorController.get404);
+
+
 
 mongoose
   .connect(
@@ -65,7 +68,11 @@ mongoose
         user.save();
       }
     });
-    app.listen(3000);
+    // app.listen(3000);
+    app.listen(PORT, () => {
+      console.info(`Store Server running on Port ${PORT}`);
+  })
+
   })
   .catch(err => {
     console.log(err);
