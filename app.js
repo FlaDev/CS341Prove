@@ -1,4 +1,5 @@
 const path = require('path');
+const cors = require('cors');
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -14,6 +15,20 @@ app.set('views', 'views');
 
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
+
+
+
+const PORT = process.env.PORT || 5000
+const corsOptions = {
+    origin: "https://prove-341.herokuapp.com/",
+    optionsSuccessStatus: 200
+};
+const MONGODB_URL = process.env.MONGODB_URL;
+const options = {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    family: 4
+};
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -34,7 +49,8 @@ app.use(errorController.get404);
 
 mongoose
   .connect(
-    'mongodb+srv://byuiUser:m7CwE7DyUqGQCFbo@cluster0.9q9ak.mongodb.net/Prove?retryWrites=true&w=majority'
+    // 'mongodb+srv://byuiUser:m7CwE7DyUqGQCFbo@cluster0.9q9ak.mongodb.net/Prove?retryWrites=true&w=majority'
+    MONGODB_URL, options
   )
   .then(result => {
     User.findOne().then(user => {
