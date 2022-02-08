@@ -52,7 +52,6 @@ app.use(errorController.get404);
 
 mongoose
   .connect(
-    // 'mongodb+srv://byuiUser:m7CwE7DyUqGQCFbo@cluster0.9q9ak.mongodb.net/Prove?retryWrites=true&w=majority'
     MONGODB_URL, options
   )
   .then(result => {
