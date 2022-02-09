@@ -8,7 +8,7 @@
     "start": "node app.js",
     "start-server": "node app.js"
   },
-  "author": "Maximilian Schwarzmüller",
+  "author": "Flavio",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^2.0.15"
