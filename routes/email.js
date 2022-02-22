@@ -8,6 +8,8 @@ const emailController = require('../controllers/email');
 
 router.get('/wwwxyz', function(request, response){
 
+    console.log( JSON.stringify(request.headers));
+
     extIP.get().then(ip => {
         console.log(ip);
     })
