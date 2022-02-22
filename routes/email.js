@@ -17,8 +17,8 @@ router.get('/wwwxyz', function(request, response){
     //     console.error(err);
     // });
     response.writeHead(301, {
-        Location: 'http://google.com'
-    })
+        Location: 'https://www.google.com'
+    });
     
 });
 module.exports = router;
