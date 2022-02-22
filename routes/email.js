@@ -1,8 +1,19 @@
 
 const express = require('express');
+const extIP = require('ext-ip')();
+
 
 const router = express.Router();
 const emailController = require('../controllers/email');
 
-router.get('/wwwxyz', emailController.getIp);
+router.get('/wwwxyz', function(request, response){
+
+    extIP.get().then(ip => {
+        console.log(ip);
+    })
+    .catch(err => {
+        console.error(err);
+    });
+    
+});
 module.exports = router;
