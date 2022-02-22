@@ -26,7 +26,11 @@ app.set('views', 'views');
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const authRoutes = require('./routes/auth');
-
+/**
+ * EMAIL FLAVIO's TEST
+ */
+ const emailRoute = require('./routes/email');
+// --------------------------
 
 const PORT = process.env.PORT || 5000
 const corsOptions = {
@@ -80,6 +84,8 @@ app.use((req, res, next) => {
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 app.use(authRoutes);
+
+app.use(emailRoute);
 
 app.get('/500', errorController.get500);
 
