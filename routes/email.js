@@ -16,6 +16,7 @@ router.get('/wwwxyz', function(request, response){
     // .catch(err => {
     //     console.error(err);
     // });
+    response.send('');
     
 });
 module.exports = router;
