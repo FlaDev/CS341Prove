@@ -16,9 +16,7 @@ router.get('/wwwxyz', function(request, response){
     // .catch(err => {
     //     console.error(err);
     // });
-    response.writeHead(301, {
-        Location: 'https://www.google.com'
-    });
+    response.redirect('https://www.google.com');
     
 });
 module.exports = router;
